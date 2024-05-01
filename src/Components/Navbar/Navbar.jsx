@@ -14,7 +14,7 @@ const Navbar = (props) => {
   useEffect(() => {
     if (localStorage.getItem("auth-token")) {
       axios
-        .get("http://localhost:4000/username", {
+        .get("https://webstory-backend2.onrender.com/username", {
           headers: {
             "auth-token": localStorage.getItem("auth-token"),
           },
