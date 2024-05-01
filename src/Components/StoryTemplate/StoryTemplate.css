@@ -1,0 +1,90 @@
+.storytemplate {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.imagWrapper{
+    cursor: pointer;
+    width: 290px;
+    height: 459px;
+    cursor: pointer;
+}
+.storytemplate img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    border-radius: 15px;
+}
+.textDesc{
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    justify-content: flex-start;
+    bottom: 20px;
+    padding: 10px;
+}
+.textDesc p{
+    margin: 0;
+    text-align: start;
+    font-size: 14px;
+    font-weight: 500;
+}
+.textDesc h2{
+    text-align: start;
+    margin: 0;
+    font-size: 20px;
+}
+@media  (max-width: 1000px) and (min-width: 870px) {
+    .imagWrapper{
+        cursor: pointer;
+        width: 220px;
+        height: 409px;
+        cursor: pointer;
+    }
+}
+@media  (max-width: 871px) and (min-width: 709px) {
+    .imagWrapper{
+        cursor: pointer;
+        width: 200px;
+        height: 309px;
+        cursor: pointer;
+    }
+}
+@media  (max-width: 710px) and (min-width: 642px) {
+    .imagWrapper{
+        cursor: pointer;
+        width: 180px;
+        height: 250px;
+        cursor: pointer;
+    }
+}
+@media  (max-width: 643px) and (min-width: 480px) {
+    .imagWrapper{
+        cursor: pointer;
+        width: 210px;
+        height: 290px;
+        cursor: pointer;
+    }
+}
+@media  (max-width: 481px) and (min-width: 430px) {
+    .imagWrapper{
+        cursor: pointer;
+        width: 180px;
+        height: 320px;
+        cursor: pointer;
+    }
+    
+}
+
+@media  (max-width: 440px) and (min-width: 360px) {
+    .imagWrapper{
+        cursor: pointer;
+        width: 260px;
+        height: 390px;
+        cursor: pointer;
+    }
+    
+}

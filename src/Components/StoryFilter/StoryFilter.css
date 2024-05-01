@@ -1,0 +1,71 @@
+.storyfilter {
+  display: flex;
+  gap: 15px;
+  margin: 30px 20px;
+  overflow-x: scroll;
+}
+
+.filter {
+  position: relative;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.filter img {
+  width: 221px;
+  height: 221px;
+  border-radius: 35px;
+  cursor: pointer;
+}
+
+.filter div {
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  width: 221px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+@media (max-width: 1000px) and (min-width: 600px) {
+  .filter img {
+    width: 150px;
+    height: 150px;
+    border-radius: 35px;
+    cursor: pointer;
+  }
+
+  .filter div {
+    width: 100%;
+  }
+}
+
+@media (max-width: 599px) and (min-width: 400px) {
+  .filter img {
+    width: 130px;
+    height: 130px;
+    border-radius: 35px;
+    cursor: pointer;
+  }
+
+  .filter div {
+    width: 100%;
+  }
+}
+
+@media (max-width: 399px) and (min-width: 200px) {
+  .filter img {
+    width: 100px;
+    height: 100px;
+    border-radius: 35px;
+    cursor: pointer;
+  }
+
+  .filter div {
+    width: 100%;
+  }
+}

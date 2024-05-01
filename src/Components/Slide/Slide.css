@@ -1,0 +1,47 @@
+.slide{
+    display: flex;
+    color:black;
+    padding: 8px;
+    width: 65px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px 0px #0000001A;
+  justify-content: center;    
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.cancelslide{
+    position: absolute;
+    width: 15px;
+    top: 12%;
+    right: 8%;
+}
+@media  (max-width:1100px) and (min-width: 627px) {
+  .slide{
+    width: 50px;
+    height: 50px;
+    font-size:11px ;
+  }
+}
+@media  (max-width:626px) and (min-width: 500px) {
+  .slide{
+    width: 40px;
+    height: 40px;
+    font-size:11px ;
+  }
+}
+@media  (max-width:499px) and (min-width: 300px) {
+  .slide{
+    width: 46px;
+    height: 40px;
+    font-size:6px ;
+  }
+  .cancelslide{
+    position: absolute;
+    width: 15px;
+    top: 12%;
+    height: 10px;
+    right: 8%;
+}
+}
+

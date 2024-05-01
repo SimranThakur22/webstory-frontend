@@ -1,0 +1,259 @@
+
+  .centered-back{
+   /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4);
+  }
+  .reactInstagramCarousel {
+    position: absolute;
+    width:400px;
+  height: 590px;
+    top:8%;
+    left: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4);
+}
+.likecount{
+  position: absolute;
+  bottom: 4%;
+  right: 18%;
+color: white;
+font-size: 12px;
+ }
+
+.reactInstagramCarousel__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.reactInstagramCarousel__image h1{
+  position: absolute;
+  bottom:10%;
+  left: 3%;
+}
+.actions{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  position: absolute;
+  bottom: 3%;
+}
+.actions img{
+  cursor: pointer;
+}
+.actions-2{
+  display: flex;
+  justify-content: space-between;
+ 
+padding-left: 10px;
+  width: 95%;
+  position: absolute;
+  top: 3%;
+}
+.actions-2 img{
+  cursor: pointer;
+}
+.reactInstagramCarousel__image p{
+  position: absolute;
+  left: 3%;
+  font-size: 15px;
+  font-weight: 600;
+  bottom:6%;
+}
+
+.reactInstagramCarousel .reactInstagramCarousel__skip--left,
+.reactInstagramCarousel .reactInstagramCarousel__skip--right {
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+.reactInstagramCarousel__progressBarSpace {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reactInstagramCarousel__progressBar {
+    position: relative;
+    width: auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-right: 2%;
+    overflow: hidden;
+}
+
+.reactInstagramCarousel__progressBar--load {
+    position: relative;
+    width: 0;
+    height: 100%;
+    background-color: white;
+}
+.toast{
+  color:red;
+  font-size: 15px;
+  font-size: 600;
+  padding: 10px 15px;
+  background: #D9D9D9;
+width: 50%;
+border-radius: 15px;
+position: absolute;
+bottom: 20%;
+left: 20%;
+text-align: center;
+}
+@media  (max-width:1100px) and (min-width: 880px) {
+  .reactInstagramCarousel {
+    position: absolute;
+    width:390px;
+  height: 530px;
+    top:8%;
+    left: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4);
+}
+
+}
+@media  (max-width:881px) and (min-width: 669px) {
+  .reactInstagramCarousel {
+    position: absolute;
+    width:360px;
+  height: 530px;
+    top:8%;
+    left: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4);
+}
+}
+@media  (max-width:670px) and (min-width: 500px) {
+  .reactInstagramCarousel {
+    position: absolute;
+    width:320px;
+  height: 500px;
+    top:8%;
+    left:20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4);
+}
+}
+@media  (max-width:501px) and (min-width: 398px) {
+  .reactInstagramCarousel {
+    position: absolute;
+    width:320px;
+  height: 500px;
+    top:8%;
+    left:12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4);
+}
+.toast{
+  color:red;
+  font-size: 15px;
+  font-size: 600;
+  padding: 10px 15px;
+  background: #D9D9D9;
+width: 70%;
+border-radius: 15px;
+position: absolute;
+bottom: 30%;
+left: 10%;
+text-align: center;
+}
+.reactInstagramCarousel__image h1{
+  position: absolute;
+  bottom:13%;
+  left: 3%;
+  font-size: 30px;
+}
+.reactInstagramCarousel__image p{
+  position: absolute;
+  left: 3%;
+  font-size: 15px;
+  font-weight: 600;
+  bottom:8%;
+}
+}
+@media  (max-width:399px) and (min-width: 300px) {
+  .reactInstagramCarousel {
+    position: absolute;
+    width:100%;
+    height: 100%;
+    top:0%;
+    left:0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4);
+}
+.likecount{
+  position: absolute;
+  bottom: 17%;
+  right: 18%;
+font-weight: 600;
+color: white;
+font-size: 14px;
+ }
+ .actions{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  position: absolute;
+  bottom: 16%;
+}
+.reactInstagramCarousel__image p{
+  position: absolute;
+  left: 3%;
+  font-size: 15px;
+  font-weight: 600;
+  bottom:19%;
+}
+.reactInstagramCarousel__image h1{
+  position: absolute;
+  bottom:24%;
+  left: 3%;
+}
+.toast{
+  color:red;
+  font-size: 15px;
+  font-size: 600;
+  padding: 10px 15px;
+  background: #D9D9D9;
+width: 50%;
+border-radius: 15px;
+position: absolute;
+bottom: 35%;
+left: 20%;
+text-align: center;
+}
+}
