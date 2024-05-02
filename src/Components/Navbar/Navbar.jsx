@@ -96,10 +96,22 @@ const Navbar = (props) => {
           <>
             <div className="wrap-actions">
               <Link to="/register">
-                <button className="action-button">Register Now</button>
+                <button
+                  className="action-button"
+                  onClick={() => settoogleham(false)}
+                >
+                  Register Now
+                </button>
               </Link>
               <Link to="/login">
-                <button className="action-button">Sign In</button>
+                <button
+                  className="action-button"
+                  onClick={() => {
+                    settoogleham(false);
+                  }}
+                >
+                  Sign In
+                </button>
               </Link>
             </div>
           </>
@@ -108,18 +120,26 @@ const Navbar = (props) => {
             <div className="wrap-actions">
               <div className="profile-wrpa">
                 <img className="userimg" src={user_img} />
-                <a href="#">{name}</a>
+                <a href="#" className="name-text">
+                  {name}
+                </a>
               </div>
               <button
                 className="action-button align-button"
                 onClick={() => {
                   props.setbookmark(true);
+                  settoogleham(false);
                 }}
               >
                 <img src={bookmark}></img>Bookmark
               </button>
               <Link to="/addStory">
-                <button className="action-button">Add Story</button>
+                <button
+                  className="action-button"
+                  onClick={() => settoogleham(false)}
+                >
+                  Add Story
+                </button>
               </Link>
               <button
                 className="action-button"
@@ -127,6 +147,7 @@ const Navbar = (props) => {
                   localStorage.removeItem("auth-token");
                   props.setUserLoggedIn(false);
                   window.location.replace("/");
+                  settoogleham(false);
                 }}
               >
                 Logout
