@@ -4,6 +4,7 @@ import storyData from "../Assets/allCategoryData";
 import StoryTemplate from "../StoryTemplate/StoryTemplate";
 import axios from "axios";
 import { StoryContext } from "../../Context/StoryContext";
+import MystoryContainer from "../MystoryCon/MystoryContainer";
 const StoryContainer = (props) => {
   const [loadmore, setLoadmore] = useState({
     movie: false,
@@ -110,6 +111,7 @@ const StoryContainer = (props) => {
     }
   }, [props.bookmark]);
 
+
   useEffect(() => {
     //    console.log( localStorage.getItem('auth-token'),"token-log");
     if (localStorage.getItem("auth-token")) {
@@ -166,28 +168,28 @@ const StoryContainer = (props) => {
                     <>
                       {loadmore.user
                         ? userdata.map((item, i) => (
-                            <StoryTemplate
+                          <MystoryContainer
+                            key={i}
+                            id={item?.id}
+                            name={item?.name}
+                            category={item?.category}
+                            description={item.description}
+                            image_url={item?.image_url}
+                          />
+                        ))
+                        : userdata
+                          // .filter(item => item.category === 'food')
+                          .slice(0, 4)
+                          .map((item, i) => (
+                            <MystoryContainer
                               key={i}
-                              id={item?.id}
-                              name={item?.name}
-                              category={item?.category}
+                              id={item.id}
+                              name={item.name}
+                              category={item.category}
                               description={item.description}
                               image_url={item?.image_url}
                             />
-                          ))
-                        : userdata
-                            // .filter(item => item.category === 'food')
-                            .slice(0, 4)
-                            .map((item, i) => (
-                              <StoryTemplate
-                                key={i}
-                                id={item.id}
-                                name={item.name}
-                                category={item.category}
-                                description={item.description}
-                                image_url={item?.image_url}
-                              />
-                            ))}
+                          ))}
                     </>
                   ) : (
                     <>
@@ -223,28 +225,28 @@ const StoryContainer = (props) => {
                 <div className="storyContainer-story">
                   {loadmore.food
                     ? fooddata.map((item, i) => (
+                      <StoryTemplate
+                        key={i}
+                        id={item?.id}
+                        name={item?.name}
+                        category={item?.category}
+                        description={item.description}
+                        image_url={item?.image_url}
+                      />
+                    ))
+                    : fooddata
+                      .filter((item) => item.category === "food")
+                      .slice(0, 4)
+                      .map((item, i) => (
                         <StoryTemplate
                           key={i}
-                          id={item?.id}
-                          name={item?.name}
-                          category={item?.category}
+                          id={item.id}
+                          name={item.name}
+                          category={item.category}
                           description={item.description}
                           image_url={item?.image_url}
                         />
-                      ))
-                    : fooddata
-                        .filter((item) => item.category === "food")
-                        .slice(0, 4)
-                        .map((item, i) => (
-                          <StoryTemplate
-                            key={i}
-                            id={item.id}
-                            name={item.name}
-                            category={item.category}
-                            description={item.description}
-                            image_url={item?.image_url}
-                          />
-                        ))}
+                      ))}
                 </div>
                 {!loadmore.food && fooddata.length > 4 ? (
                   <button
@@ -272,32 +274,32 @@ const StoryContainer = (props) => {
                 <div className="storyContainer-story">
                   {loadmore.health
                     ? health.map((item, i) => {
-                        return (
-                          <StoryTemplate
-                            key={i}
-                            id={item.id}
-                            name={item.name}
-                            category={item.category}
-                            description={item.description}
-                            image_url={item?.image_url}
-                          />
-                        );
-                      })
+                      return (
+                        <StoryTemplate
+                          key={i}
+                          id={item.id}
+                          name={item.name}
+                          category={item.category}
+                          description={item.description}
+                          image_url={item?.image_url}
+                        />
+                      );
+                    })
                     : health
-                        .filter(
-                          (item) => item.category === "health and fitness"
-                        )
-                        .slice(0, 4)
-                        .map((item, i) => (
-                          <StoryTemplate
-                            key={item.id}
-                            id={item.id}
-                            name={item.name}
-                            category={item.category}
-                            description={item.description}
-                            image_url={item?.image_url}
-                          />
-                        ))}
+                      .filter(
+                        (item) => item.category === "health and fitness"
+                      )
+                      .slice(0, 4)
+                      .map((item, i) => (
+                        <StoryTemplate
+                          key={item.id}
+                          id={item.id}
+                          name={item.name}
+                          category={item.category}
+                          description={item.description}
+                          image_url={item?.image_url}
+                        />
+                      ))}
                 </div>
 
                 {!loadmore.health && health.length > 4 ? (
@@ -326,30 +328,30 @@ const StoryContainer = (props) => {
                 <div className="storyContainer-story">
                   {loadmore.travel
                     ? traveldata.map((item, i) => {
-                        return (
-                          <StoryTemplate
-                            key={i}
-                            id={item.id}
-                            name={item.name}
-                            category={item.category}
-                            description={item.description}
-                            image_url={item?.image_url}
-                          />
-                        );
-                      })
+                      return (
+                        <StoryTemplate
+                          key={i}
+                          id={item.id}
+                          name={item.name}
+                          category={item.category}
+                          description={item.description}
+                          image_url={item?.image_url}
+                        />
+                      );
+                    })
                     : traveldata
-                        .filter((item) => item.category === "travel")
-                        .slice(0, 4)
-                        .map((item, i) => (
-                          <StoryTemplate
-                            key={item.id}
-                            id={item.id}
-                            name={item.name}
-                            category={item.category}
-                            description={item.description}
-                            image_url={item?.image_url}
-                          />
-                        ))}
+                      .filter((item) => item.category === "travel")
+                      .slice(0, 4)
+                      .map((item, i) => (
+                        <StoryTemplate
+                          key={item.id}
+                          id={item.id}
+                          name={item.name}
+                          category={item.category}
+                          description={item.description}
+                          image_url={item?.image_url}
+                        />
+                      ))}
                 </div>
                 {!loadmore.travel && traveldata.length > 4 ? (
                   <button
@@ -377,30 +379,30 @@ const StoryContainer = (props) => {
                 <div className="storyContainer-story">
                   {loadmore.movie
                     ? moviedata.map((item, i) => {
-                        return (
-                          <StoryTemplate
-                            key={i}
-                            id={item.id}
-                            name={item.name}
-                            category={item.category}
-                            description={item.description}
-                            image_url={item?.image_url}
-                          />
-                        );
-                      })
+                      return (
+                        <StoryTemplate
+                          key={i}
+                          id={item.id}
+                          name={item.name}
+                          category={item.category}
+                          description={item.description}
+                          image_url={item?.image_url}
+                        />
+                      );
+                    })
                     : moviedata
-                        .filter((item) => item.category === "movie")
-                        .slice(0, 4)
-                        .map((item, i) => (
-                          <StoryTemplate
-                            key={item.id}
-                            id={item.id}
-                            name={item.name}
-                            category={item.category}
-                            description={item.description}
-                            image_url={item?.image_url}
-                          />
-                        ))}
+                      .filter((item) => item.category === "movie")
+                      .slice(0, 4)
+                      .map((item, i) => (
+                        <StoryTemplate
+                          key={item.id}
+                          id={item.id}
+                          name={item.name}
+                          category={item.category}
+                          description={item.description}
+                          image_url={item?.image_url}
+                        />
+                      ))}
                 </div>
                 {!loadmore.movie && moviedata.length > 4 ? (
                   <button
@@ -428,30 +430,30 @@ const StoryContainer = (props) => {
                 <div className="storyContainer-story">
                   {loadmore.education
                     ? educationdata.map((item, i) => {
-                        return (
-                          <StoryTemplate
-                            key={i}
-                            id={item.id}
-                            name={item.name}
-                            category={item.category}
-                            description={item.description}
-                            image_url={item?.image_url}
-                          />
-                        );
-                      })
+                      return (
+                        <StoryTemplate
+                          key={i}
+                          id={item.id}
+                          name={item.name}
+                          category={item.category}
+                          description={item.description}
+                          image_url={item?.image_url}
+                        />
+                      );
+                    })
                     : educationdata
-                        .filter((item) => item.category === "education")
-                        .slice(0, 4)
-                        .map((item, i) => (
-                          <StoryTemplate
-                            key={item.id}
-                            id={item.id}
-                            name={item.name}
-                            category={item.category}
-                            description={item.description}
-                            image_url={item?.image_url}
-                          />
-                        ))}
+                      .filter((item) => item.category === "education")
+                      .slice(0, 4)
+                      .map((item, i) => (
+                        <StoryTemplate
+                          key={item.id}
+                          id={item.id}
+                          name={item.name}
+                          category={item.category}
+                          description={item.description}
+                          image_url={item?.image_url}
+                        />
+                      ))}
                 </div>
                 {!loadmore.education && educationdata.length > 4 ? (
                   <button

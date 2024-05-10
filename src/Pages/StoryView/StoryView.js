@@ -71,7 +71,7 @@ const StoryView = (props) => {
           console.error(error);
         });
     })();
-  }, [bookmarkitem, likestoryitem]);
+  }, [bookmarkindex, likecount]);
 
   useEffect(() => {
     // Clean up the timeout if the component unmounts before 3 seconds
@@ -245,8 +245,8 @@ const StoryView = (props) => {
                     ? 1
                     : 0
                   : index === position
-                  ? 1
-                  : 0,
+                    ? 1
+                    : 0,
               }}
               key={`${src}-${index}`}
             >

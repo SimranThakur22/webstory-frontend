@@ -1,0 +1,20 @@
+.MystoryContainer {
+    position: relative;
+}
+
+.editMystory {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    width: 79px;
+    justify-content: center;
+    border-radius: 25px;
+    padding: 8px 0;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+    bottom: -14px;
+    background-color: #fff;
+    cursor: pointer;
+}

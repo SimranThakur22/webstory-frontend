@@ -11,14 +11,14 @@ import StoryForm from './Components/StoryForm/StoryForm';
 import AddStory from './Pages/AddStory/AddStory';
 import Login from './Pages/Register/Login';
 import Stories from './Pages/storypopup/Stories'
-
+import EditAddStory from './Pages/EditStory/EditAddStory';
 
 
 function App() {
   const [bookmark, setbookmark] = useState(false);
   const [userloggedin, setUserLoggedIn] = useState(false);
   const [currentcategory, setCurrentCategory] = useState("all");
- 
+
 
   useEffect(() => {
     if (localStorage.getItem('auth-token')) {
@@ -32,18 +32,19 @@ function App() {
   return (
     <div >
       <BrowserRouter>
-        <Navbar userloggedin={userloggedin} setUserLoggedIn={setUserLoggedIn} setbookmark={setbookmark} bookmark={bookmark}/>
-        <StoryFilter bookmark={bookmark} setCurrentCategory={setCurrentCategory} />
+        <Navbar userloggedin={userloggedin} setUserLoggedIn={setUserLoggedIn} setbookmark={setbookmark} bookmark={bookmark} />
+        <StoryFilter bookmark={bookmark} setCurrentCategory={setCurrentCategory} category={currentcategory} />
         <StoryContainer bookmark={bookmark} category={currentcategory} userloggedin={userloggedin} />
         {/* <AddStory/> */}
 
         <Routes>
-   
+
           {/* <Route  path='/bookmark' element={<StoryContainer category="bookmark" bookmark={bookmark}/>}/> */}
           <Route path='/:id' element={<StoryView bookmark={bookmark} />} />
           <Route path='/register' element={<LoginSignup />} />
           <Route path='/login' element={<Login setUserLoggedIn={setUserLoggedIn} />} />
           <Route path='/addStory' element={<AddStory />} />
+          <Route path='/editStory' element={<EditAddStory />} />
           {/* <Route path='/popup' element={<Stories images={images}/>} /> */}
         </Routes>
       </BrowserRouter>

@@ -3,7 +3,7 @@ import "./StoryForm.css";
 
 const StoryForm = (props) => {
     console.log(props, "key");
-    const[category,setCategory]=useState("");
+    const [category, setCategory] = useState("");
     return (
         <div className='StoryForm'>
 
@@ -21,26 +21,26 @@ const StoryForm = (props) => {
             </div>
             <div className='storyfield category'>
                 <h3>Category:</h3>
-                
+
                 <div className='ulcategory'>
-                <input placeholder="Select Category" name='Category' required value={category} ></input>
-                
-                  {props.currentslide>0?<></>:  <ul className='categorylist'>
+                    <input placeholder="Select Category" name='Category' required value={category} ></input>
+
+                    {props.currentslide > 0 ? <></> : <ul className='categorylist'>
                         {/* <li onClick={()=>{setCategory("food"); props.setStory(prevStory => ({ ...prevStory, Category: category }));let name='Category' ;let value={category}; {props.storyHandler}}}>food</li> */}
                         <li onClick={() => {
-                          setCategory("food");
-                           props.setStory(prevStory => ({ ...prevStory, Category: "food" }));
-                    props.storyHandler({ target: { name: 'Category', value: "food" } });
-                             }}>
-                              food
-                           </li>
-                        <li onClick={()=>{setCategory("health and fitness"); props.setStory(prevStory => ({ ...prevStory, Category: category })); props.storyHandler({ target: { name: 'Category', value: "health and fitness" } });}}>health and fitness</li>
-                        <li onClick={()=>{setCategory("travel");props.setStory(prevStory => ({ ...prevStory, Category: category })); props.storyHandler({ target: { name: 'Category', value: "travel" } });}}>travel</li>
-                        <li onClick={()=>{setCategory("movies");props.setStory(prevStory => ({ ...prevStory, Category: category })); props.storyHandler({ target: { name: 'Category', value: "movies" } });}}>movies</li>
-                        <li onClick={()=>{setCategory("education");props.setStory(prevStory => ({ ...prevStory, Category: category })); props.storyHandler({ target: { name: 'Category', value: "education" } });}}>education</li>
+                            setCategory("food");
+                            props.setStory(prevStory => ({ ...prevStory, Category: "food" }));
+                            props.storyHandler({ target: { name: 'Category', value: "food" } });
+                        }}>
+                            food
+                        </li>
+                        <li onClick={() => { setCategory("health and fitness"); props.setStory(prevStory => ({ ...prevStory, Category: category })); props.storyHandler({ target: { name: 'Category', value: "health and fitness" } }); }}>health and fitness</li>
+                        <li onClick={() => { setCategory("travel"); props.setStory(prevStory => ({ ...prevStory, Category: category })); props.storyHandler({ target: { name: 'Category', value: "travel" } }); }}>travel</li>
+                        <li onClick={() => { setCategory("movies"); props.setStory(prevStory => ({ ...prevStory, Category: category })); props.storyHandler({ target: { name: 'Category', value: "movies" } }); }}>movies</li>
+                        <li onClick={() => { setCategory("education"); props.setStory(prevStory => ({ ...prevStory, Category: category })); props.storyHandler({ target: { name: 'Category', value: "education" } }); }}>education</li>
                     </ul>}
                 </div>
-  
+
             </div>
 
         </div>

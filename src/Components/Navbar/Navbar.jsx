@@ -10,7 +10,7 @@ import axios from "axios";
 const Navbar = (props) => {
   const [name, setName] = useState("");
   const [toogleham, settoogleham] = useState(false);
-
+  const [devtoogle, setdevtoogle] = useState(false);
   useEffect(() => {
     if (localStorage.getItem("auth-token")) {
       axios
@@ -61,26 +61,29 @@ const Navbar = (props) => {
               <Link to="/addStory">
                 <button>Add Story</button>
               </Link>
-              <img className="userimg" src={user_img}></img>
+              <img className="userimg" src={user_img} ></img>
               <div class="dropdown">
-                <img className="hamburger" src={hamburger}></img>
-                <div class="dropdown-content">
-                  <a href="#">{name}</a>
-                  <button
-                    onClick={() => {
-                      localStorage.removeItem("auth-token");
-                      props.setUserLoggedIn(false);
-                      window.location.replace("/");
-                    }}
-                  >
-                    Logout
-                  </button>
-                </div>
+                <img className="hamburger" onClick={() => setdevtoogle(!devtoogle)} src={hamburger}></img>
+                {
+                  devtoogle ?
+                    <div class="dropdown-content">
+                      <a href="#">{name}</a>
+                      <button
+                        onClick={() => {
+                          localStorage.removeItem("auth-token");
+                          props.setUserLoggedIn(false);
+                          window.location.replace("/");
+                        }}
+                      >
+                        Logout
+                      </button>
+                    </div> : <></>
+                }
               </div>{" "}
             </>
           )}
         </div>
-        <div className="hamburger-mob">
+        <div className="hamburger-mob" style={{ cursor: 'pointer' }}>
           <img
             src={hamburger}
             alt=""

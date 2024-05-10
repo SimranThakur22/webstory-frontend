@@ -6,16 +6,20 @@ import Slide from "../../Components/Slide/Slide";
 import { Link } from "react-router-dom";
 import cancel_icon from "../../Components/Assets/Vector (11).svg";
 import axios from "axios";
-
-const AddStory = () => {
+import { useLocation } from 'react-router-dom';
+const EditAddStory = () => {
+  const location = useLocation();
+  const { id } = location.state;
   const [totalslide, setTotalSlide] = useState(3);
   const [currentslide, setcurrentSlide] = useState(0);
+  const [creation_time, setcreation_time] = useState("");
   const [story, setStory] = useState({
     Heading: "",
     Description: "",
     Image: "",
     Category: "",
   });
+
   const [userStory, setuserStory] = useState([]);
 
   const [error, setError] = useState(false);
@@ -46,21 +50,20 @@ const AddStory = () => {
       story.Heading !== "" &&
       story.Category !== "" &&
       story.Image !== "" &&
-      story.Category !== ""
+      story.Description !== "" // Assuming Description is a required field
     ) {
-      if (userStory[currentslide] !== undefined) {
-        setuserStory((prevStory) =>
-          prevStory.map((item, index) => {
-            if (index === currentslide) {
-              return { ...item, story: story };
-            } else {
-              return item;
-            }
-          })
-        );
-      } else {
-        setuserStory((prevStory) => [...prevStory, { story: story }]);
-      }
+      setuserStory((prevStory) =>
+        prevStory.map((item, index) => {
+          console.log(currentslide, "currentslide");
+          if (index === currentslide) {
+            console.log("from inde -> ", currentslide);
+            return { ...item, category: story.Category, image_url: story.Image, description: story.Description, name: story.Heading };
+          } else {
+            return item;
+          }
+        })
+      );
+
       setcurrentSlide((prevcount) => prevcount + 1);
 
       setStory((prevStory) => ({
@@ -68,26 +71,29 @@ const AddStory = () => {
         Heading: "",
         Description: "",
         Image: "",
-        Category: story[0]?.Category,
+        Category: story.Category,
       }));
+
       setError(false);
     } else {
       setError(true);
     }
   };
-  console.log(currentslide, "currentslide");
+  console.log(userStory, "user");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (post && !error && userStory.length >= 3 && currentslide <= totalslide) {
+    if (post && !error && userStory.length >= 3 && currentslide <= totalslide && currentslide == userStory.length) {
       axios
-        .post("https://webstory-backend2.onrender.com/userstories", userStory, {
+        .put(`https://webstory-backend2.onrender.com/updatestory`, userStory, {
           headers: {
             "auth-token": localStorage.getItem("auth-token"),
           },
         })
         .then((response) => {
           console.log(response.data);
-          window.location.replace("/"); // Redirect after successful POST
+          window.location.replace("/");
         })
         .catch((error) => {
           console.error(error);
@@ -99,12 +105,34 @@ const AddStory = () => {
   }, [post]);
 
   useEffect(() => {
+    console.log("user-currentslide ", userStory[currentslide]);
     if (userStory[currentslide] != undefined) {
-      setStory(userStory[currentslide].story);
+      setStory({
+        Heading: userStory[currentslide].name,
+        Description: userStory[currentslide].description,
+        Image: userStory[currentslide].image_url,
+        Category: userStory[currentslide].category,
+      });
     }
-  }, [currentslide]);
+  }, [currentslide, creation_time]);
 
-  const Navigate = useNavigate();
+  useEffect(() => {
+    axios
+      .get(`https://webstory-backend2.onrender.com/mystory/${id}`, {
+        headers: {
+          "auth-token": localStorage.getItem("auth-token"),
+        }
+      })
+      .then(response => {
+        setcreation_time(response.data.data.topStories[0].creation_time);
+        setuserStory(response.data.data.topStories);
+        console.log("test edit call cpunt");
+      })
+      .catch(error => {
+        console.log(error, "error -->");
+      });
+  }, [id]);
+
   return (
     <>
       <div className="darkBG" />
@@ -226,4 +254,4 @@ const AddStory = () => {
   );
 };
 
-export default AddStory;
+export default EditAddStory;
